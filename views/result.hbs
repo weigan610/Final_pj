@@ -1,0 +1,28 @@
+<script defer type='module' src="javascripts/main.mjs"></script>
+<h3>Result</h3>
+
+<div class="container">Description: Grab more jpegs for your own use!!!</div>
+
+<!-- Recording Position: 10/03 42:00 -->
+<form method="GET" action="/result" class="form-floating mb-3">
+    <input type="text" name="URL" value="">
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+<div>Add to my favourite links list! &#40;will be stored in the db&#41;</div>
+<form method="POST" action="/api/favouriteLinks" class="form-floating mb-3">
+    <input type="text" id="favouriteLinksForm" name="URL" value="{{ requestURL }}">
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+<div id="resultImages">
+    {{#each images as |image|}}
+    <img src={{image}} class="img-thumbnail">
+    {{/each}}
+</div>
+
+<iframe src="{{ requestURL }}" class="img-thumbnail" id="requestIframe" width="750px" height="700">
+
+
